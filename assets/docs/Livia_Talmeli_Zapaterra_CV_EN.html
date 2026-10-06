@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curriculum Vitae - Lívia Talmeli Zapaterra</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 7.5mm 13mm 6.5mm 13mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    font-size: 8.75pt;
+    line-height: 1.34;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media screen {
+    body {
+      background-color: #f1f5f9;
+      padding: 24px 12px;
+    }
+    .action-bar {
+      max-width: 820px;
+      margin: 0 auto 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+    .btn-action {
+      background-color: #0f172a;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-action:hover {
+      background-color: #1e293b;
+    }
+    .cv-page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 38px 44px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+    }
+  }
+
+  @media print {
+    .action-bar {
+      display: none !important;
+    }
+    body {
+      background-color: #fff;
+      padding: 0;
+    }
+    .cv-page {
+      padding: 0;
+      box-shadow: none;
+      max-width: 100%;
+    }
+  }
+
+  /* Header Bar - cv1 style */
+  .header-bar {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 7px;
+    margin-bottom: 8.5px;
+  }
+
+  h1 {
+    font-size: 20pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #0f172a;
+    text-transform: uppercase;
+    margin-bottom: 3.5px;
+    line-height: 1.1;
+  }
+
+  .contact-line {
+    font-size: 8.45pt;
+    color: #475569;
+    margin-top: 2.5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .contact-line a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .contact-line a:hover {
+    color: #0284c7;
+    text-decoration: underline;
+  }
+
+  .sep {
+    color: #94a3b8;
+    user-select: none;
+  }
+
+  /* Section Title - cv1 style */
+  .section-title {
+    font-size: 9.45pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0f172a;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 2px;
+    margin-top: 8pt;
+    margin-bottom: 5.5pt;
+  }
+
+  .summary-text {
+    color: #475569;
+    font-size: 8.7pt;
+    line-height: 1.36;
+    text-align: justify;
+  }
+
+  /* Skills Grid - cv1 style */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 152px 1fr;
+    gap: 3.5px 10px;
+    font-size: 8.55pt;
+    line-height: 1.32;
+  }
+
+  .skill-cat {
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .skill-list {
+    color: #475569;
+  }
+
+  /* Experience Item Blocks - cv1 style */
+  .item-block {
+    margin-bottom: 5.8pt;
+  }
+
+  .item-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .item-title {
+    font-size: 9.15pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .item-date {
+    font-size: 8.3pt;
+    font-weight: 600;
+    color: #475569;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+
+  .item-sub {
+    font-size: 8.4pt;
+    color: #0284c7;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .item-sub a {
+    color: #0284c7;
+    text-decoration: none;
+  }
+  .item-sub a:hover {
+    text-decoration: underline;
+  }
+
+  .location-text {
+    color: #64748b;
+    font-weight: 400;
+  }
+
+  ul.bullets {
+    margin-left: 16px;
+    margin-bottom: 0;
+  }
+
+  ul.bullets li {
+    margin-bottom: 2pt;
+    color: #475569;
+    font-size: 8.5pt;
+    line-height: 1.32;
+    text-align: justify;
+  }
+
+  ul.bullets li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Honors & Certifications in 2 Balanced Columns */
+  .dual-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 12px;
+  }
+
+  ul.compact-list {
+    margin-left: 16px;
+  }
+
+  ul.compact-list li {
+    margin-bottom: 2pt;
+    color: #475569;
+    font-size: 8.45pt;
+    line-height: 1.3;
+  }
+
+  ul.compact-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  ul.compact-list li strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  .gdpr-note {
+    margin-top: 7pt;
+    padding-top: 3pt;
+    border-top: 1px solid #e2e8f0;
+    font-size: 6.6pt;
+    color: #94a3b8;
+    text-align: center;
+    line-height: 1.2;
+  }
+</style>
+</head>
+<body>
+
+  <div class="action-bar no-print">
+    <a href="CV_Livia_Talmeli_Zapaterra_EN.pdf" target="_blank" class="btn-action" style="background-color: #0284c7;">📄 Direct PDF</a>
+    <button class="btn-action" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <a href="Livia_Talmeli_Zapaterra_CV.html" class="btn-action" style="background-color: #334155;">🇮🇹 Versione IT</a>
+    <a href="../../index.html" class="btn-action" style="background-color: #475569;">← Back to Portfolio</a>
+  </div>
+
+  <div class="cv-page">
+    <div class="header-bar">
+      <h1>Lívia Talmeli Zapaterra</h1>
+      <div class="contact-line">
+        <span>Turin, Italy</span> <span class="sep">•</span>
+        <span><a href="tel:+393445256374">+39 344 525 6374</a></span> <span class="sep">•</span>
+        <span><a href="mailto:liviatalmeli.z@gmail.com">liviatalmeli.z@gmail.com</a></span>
+      </div>
+      <div class="contact-line">
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/livia-talmeli-zapaterra" target="_blank">linkedin.com/in/livia-talmeli-zapaterra</a></span> <span class="sep">•</span>
+        <span>GitHub: <a href="https://github.com/LiviaTalmeli" target="_blank">github.com/LiviaTalmeli</a></span>
+      </div>
+      <div class="contact-line">
+        <span>Portfolio: <a href="https://liviatalmeli.github.io/technical-portfolio/" target="_blank">liviatalmeli.github.io/technical-portfolio</a></span>
+      </div>
+    </div>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <div class="section-title" style="margin-top: 0;">Professional Summary</div>
+    <p class="summary-text">
+      Software Developer and Computer Engineering student at Politecnico di Torino focusing on AI system integration and end-to-end software development. Proven experience coordinating software architectures and developing scalable web/mobile applications. Results-driven problem solver skilled in translating business requirements into automated, production-ready technical solutions.
+    </p>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-cat">Languages:</div>
+      <div class="skill-list">Python, C, CSS, HTML, JavaScript, MATLAB</div>
+
+      <div class="skill-cat">Frameworks & Tools:</div>
+      <div class="skill-list">Flask, Render, RESTful APIs, JSON, Git, GitHub, Microsoft Office</div>
+
+      <div class="skill-cat">AI & Automation:</div>
+      <div class="skill-list">OpenAI API, AI-assisted coding, Prompt Engineering, Telegram Bot API</div>
+
+      <div class="skill-cat">Methodologies:</div>
+      <div class="skill-list">Agile/Scrum, Software Development Life Cycle (SDLC), Project Coordination</div>
+
+      <div class="skill-cat">Spoken Languages:</div>
+      <div class="skill-list">Portuguese (Native), English (Fluent / C1 – TOEFL 98), Italian (Fluent / C1), Spanish (Beginner / A1)</div>
+    </div>
+
+    <!-- EXPERIENCE & SOFTWARE PROJECTS -->
+    <div class="section-title">Experience & Software Projects</div>
+
+    <!-- Viare -->
+    <div class="item-block">
+      <div class="item-header">
+        <span class="item-title">Full-Stack Developer & AI Integrator</span>
+        <span class="item-date">Aug 2026 – Present</span>
+      </div>
+      <div class="item-sub">Viare (Independent Project) | <span class="location-text">Italy</span></div>
+      <ul class="bullets">
+        <li>Developed and deployed an automated Telegram bot for language learning, delivering real-time grammar corrections and explanations via direct messages (DM) by integrating the OpenAI API (GPT-4o-mini) with a Python and Flask backend.</li>
+        <li>Built an autonomous daily educational challenge generator featuring concurrent multithreading, probabilistic level balancing (A1–B1), and JSON-based state management to prevent content repetition.</li>
+        <li>Managed web infrastructure and deployment on Render, structuring custom campaigns and discount codes for a network of 90 potential affiliate partners while configuring analytics tracking metrics.</li>
+      </ul>
+    </div>
+
+    <!-- Team DIANA -->
+    <div class="item-block">
+      <div class="item-header">
+        <span class="item-title">Technical Project Coordinator</span>
+        <span class="item-date">Nov 2024 – Present</span>
+      </div>
+      <div class="item-sub">Team DIANA - Politecnico di Torino | <span class="location-text">Turin, Italy</span></div>
+      <ul class="bullets">
+        <li>Coordinated organizational workflows and milestones for the software engineering team building space exploration rovers, ensuring strict compliance with international competition standards.</li>
+        <li>Streamlined communication across development sub-teams and managed sprint workflows, overseeing GitHub repository organization to eliminate bottlenecks during field testing.</li>
+      </ul>
+    </div>
+
+    <!-- Kite AHSD -->
+    <div class="item-block">
+      <div class="item-header">
+        <span class="item-title">Mobile App Developer</span>
+        <span class="item-date">Feb 2021 – Apr 2022</span>
+      </div>
+      <div class="item-sub">Kite AHSD & Personal Projects | <span class="location-text">Brazil</span></div>
+      <ul class="bullets">
+        <li>Engineered &quot;Anti-Distraction&quot; web application and browser extension (Manifest V3) for real-time audio and subtitle monitoring during meetings and lectures (Meet, Teams, Zoom, YouTube), featuring instant sensory alerts (Web Audio API, TTS).</li>
+        <li>Co-founded digital platform &quot;Kite&quot; for the neurodivergent community, architecting the frontend in Vanilla JavaScript (ES6+), implementing in-browser mathematical sound synthesis, and delivering an accessible UI at launch.</li>
+      </ul>
+    </div>
+
+    <!-- LALA -->
+    <div class="item-block">
+      <div class="item-header">
+        <span class="item-title">Data & Operations Lead</span>
+        <span class="item-date">Aug 2021 – Feb 2023</span>
+      </div>
+      <div class="item-sub">LALA & Construindo o Futuro | <span class="location-text">Remote</span></div>
+      <ul class="bullets">
+        <li>Optimized data workflows for international leadership bootcamps, standardizing cross-border data collection across globally distributed teams to eliminate operational friction.</li>
+        <li>Directed operational execution for socio-environmental impact initiatives across 4 global hubs, consistently meeting all delivery deadlines through agile coordination of multidisciplinary teams.</li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section-title">Education</div>
+
+    <div class="item-block">
+      <div class="item-header">
+        <span class="item-title">Bachelor of Science in Computer Engineering</span>
+        <span class="item-date">Sep 2024 – Present</span>
+      </div>
+      <div class="item-sub">Politecnico di Torino | <span class="location-text">Turin, Italy</span></div>
+    </div>
+
+    <div class="item-block">
+      <div class="item-header">
+        <span class="item-title">Engineering Summer Program</span>
+        <span class="item-date">Jul 2022</span>
+      </div>
+      <div class="item-sub">University of Michigan | <span class="location-text">United States</span></div>
+    </div>
+
+    <!-- HONORS & CERTIFICATIONS -->
+    <div class="section-title">Honors & Certifications</div>
+    <div class="dual-grid">
+      <ul class="compact-list">
+        <li><strong>Cloud Digital Leader (CDL)</strong> | Google</li>
+        <li><strong>Generative AI for Developers</strong> | Google</li>
+      </ul>
+      <ul class="compact-list">
+        <li><strong>Women in Engineering Award</strong> | University of Brasília (2021)</li>
+        <li><strong>Scholarship Award</strong> | Society of Women Engineers</li>
+        <li><strong>Gold Medal</strong> | Brazilian Astronomy Olympiad (OBA) (2022)</li>
+      </ul>
+    </div>
+
+    <div class="gdpr-note">
+      I authorize the processing of my personal data in accordance with Italian Legislative Decree 196/2003 and EU GDPR 2016/679 for recruitment purposes.
+    </div>
+  </div>
+
+</body>
+</html>
